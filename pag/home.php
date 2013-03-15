@@ -1,5 +1,5 @@
 <div>
-	<img src='img/loca.jpg' style="width: 100%;"/>
+	<img src='img/loca.jpg' style="width: 100%;" alt="loca" title="loca" />
 </div>
 <div>
 	<form action="index.php" method="post">

@@ -5,10 +5,9 @@ var status_addpoint=0; //status do botão addpoint [0-não clicado, 1-clicado, 2
 var lista_obj = new Array();
 var indiceUso;
 function inicializarMapa(){
-
 	var mapOptions = {
 	  zoom: 8,
-	  center: new google.maps.LatLng(-34.397, 150.644),
+	  center: new google.maps.LatLng(-27.09953374571175, -52.61633634567261), /*Chapecó - SC */
 	  mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 	map = new google.maps.Map(document.getElementById('mapa_geral'), mapOptions);
@@ -47,6 +46,11 @@ function adicionaMarcador(posicao, titulo, descricao){
 		});
 	}
 	map.setCenter(marcador.getPosition());
+	
+	google.maps.event.addListener(marcador, 'mouseup', function(event){ // searastar o gurizão do marcador
+		localizacao = marcador.getPosition();
+		marcador.setPosition(event.latLng);
+	});
 }
 function liberaInclusao(){
 	blinclmap = true;

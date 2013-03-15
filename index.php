@@ -8,7 +8,7 @@
     <title><?php echo titulo_site; ?></title>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
     <link href="css/main.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <script src='js/jquery.js' type='text/javascript'></script>
 	<script src='js/funcoes.js' type='text/javascript'></script>
     <?php 
@@ -23,7 +23,7 @@
   <body>
 	<div id="dvsup" class="superior">
 		<div style="width: 25%px; float: left">
-			<img src="img/logo.png" />
+			<img src="img/logo.png" alt="logo" title="logo" />
 		</div>
 		<div style="width: 60%; float: left; color: black; padding-top: 10px; padding-left: 10px;">
 			<a href="?p=home" class='sup'>Início</a> | 
@@ -36,7 +36,6 @@
 			?>
 		</div>
 	</div>
-	
 		<?php if(!isset($_GET["p"]) || $_GET["p"]!='mapa') echo "	<div style='padding-top: 10%;'>	<div class='dv_dados'>";
 				if(isset($_SESSION["erro"])){
 					echo "<div style='border-color: #b52727; border-style: solid; border-width: 2px; background-color: #c45555; font-size: 13px; text-align:center; color: white; text-weight: bold; height: 25px;'><div style='margin-top: 5px;'>Erro: $_SESSION[erro]</div></div>";
@@ -50,8 +49,8 @@
 				$url = str_replace(array('.', '..', '/'), '', $url);
 				if(file_exists("pag/$url.php")) include "pag/$url.php"; else echo "Página não localizada";
 			?>
-		<?php if(isset($_GET["p"]) && $_GET["p"]!='mapa') echo "		</div>"; ?>
-	</div>
+		<?php if(!isset($_GET["p"]) || $_GET["p"]!='mapa') echo "		</div></div>"; ?>
+	
   </body>
 </html>
 
